@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maria Eduarda Arrabal, Content Creator</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --white: #FAFAF8;
+    --black: #111110;
+    --gray-light: #F0EEE9;
+    --gray-mid: #C8C5BC;
+    --gray-muted: #8A887F;
+    --accent: #1A1A18;
+    --pink: #F0557A;
+    --lilac: #9B7FD4;
+    --mint: #3DBFA0;
+    --yellow: #F5C842;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--white);
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3.5rem;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--gray-mid);
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--gray-muted);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--black); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3.5rem 4rem 3.5rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 4vw, 4.2rem);
+    line-height: 1.1;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    display: block;
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--gray-muted);
+    max-width: 400px;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .cta-group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    background: var(--pink);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: opacity 0.2s;
+    border-radius: 2px;
+  }
+
+  .btn-primary:hover { opacity: 0.8; }
+
+  .btn-secondary {
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--lilac);
+    text-decoration: none;
+    border-bottom: 1px solid var(--lilac);
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+
+  .btn-secondary:hover { opacity: 0.5; }
+
+  .hero-visual {
+    background: var(--gray-light);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .hero-visual-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+  }
+
+  .hero-bg-text {
+    font-family: var(--serif);
+    font-size: clamp(5rem, 12vw, 12rem);
+    font-weight: 600;
+    color: var(--gray-mid);
+    opacity: 0.35;
+    line-height: 1;
+    position: absolute;
+    bottom: -1rem;
+    right: -1rem;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hero-stat-grid {
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--gray-mid);
+    border: 1px solid var(--gray-mid);
+  }
+
+  .hero-stat {
+    background: var(--gray-light);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .hero-stat-num {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 600;
+    display: block;
+    color: var(--pink);
+  }
+
+  .hero-stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-muted);
+  }
+
+  /* MARQUEE */
+  .marquee-wrap {
+    background: linear-gradient(90deg, var(--pink), var(--lilac));
+    color: var(--white);
+    padding: 1rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    animation: marquee 18s linear infinite;
+  }
+
+  .marquee-item {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    padding: 0 2rem;
+    opacity: 0.7;
+  }
+
+  .marquee-dot {
+    font-style: normal;
+    opacity: 1;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ABOUT */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0;
+    border-bottom: 0.5px solid var(--gray-mid);
+  }
+
+  .about-label {
+    padding: 5rem 3rem 5rem 3.5rem;
+    border-right: 0.5px solid var(--gray-mid);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .section-tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pink);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  .about-content {
+    padding: 5rem 3.5rem 5rem 4rem;
+  }
+
+  .about-content p {
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: #3A3A38;
+    max-width: 600px;
+  }
+
+  .about-content p + p { margin-top: 1.5rem; }
+
+  /* SERVICES */
+  .services {
+    border-bottom: 0.5px solid var(--gray-mid);
+  }
+
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 0.5px solid var(--gray-mid);
+  }
+
+  .services-header-left {
+    padding: 3.5rem 3.5rem;
+    border-right: 0.5px solid var(--gray-mid);
+  }
+
+  .services-header-right {
+    padding: 3.5rem 3.5rem;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  .section-title em { font-style: italic; }
+
+  .services-header-right p {
+    font-size: 0.95rem;
+    color: var(--gray-muted);
+    max-width: 340px;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .service-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .service-item {
+    padding: 3rem 2.5rem;
+    border-right: 0.5px solid var(--gray-mid);
+    border-bottom: 0.5px solid var(--gray-mid);
+    transition: background 0.25s;
+  }
+
+  .service-item:last-child { border-right: none; }
+
+  .service-item:hover { background: #FFF0F4; }
+
+  .service-num {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    color: var(--pink);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .service-name {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .service-desc {
+    font-size: 0.9rem;
+    color: var(--gray-muted);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* PORTFOLIO */
+  .portfolio {
+    border-bottom: 0.5px solid var(--gray-mid);
+  }
+
+  .portfolio-header {
+    padding: 3.5rem 3.5rem 2rem;
+    border-bottom: 0.5px solid var(--gray-mid);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .portfolio-item {
+    border-right: 0.5px solid var(--gray-mid);
+    border-bottom: 0.5px solid var(--gray-mid);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .portfolio-item:nth-child(3n) { border-right: none; }
+
+  .portfolio-thumb {
+    aspect-ratio: 3/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.5);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    background: #eee;
+  }
+
+  .portfolio-item:nth-child(1) .portfolio-thumb { background: #F0557A; }
+  .portfolio-item:nth-child(2) .portfolio-thumb { background: #9B7FD4; }
+  .portfolio-item:nth-child(3) .portfolio-thumb { background: #3DBFA0; }
+  .portfolio-item:nth-child(4) .portfolio-thumb { background: #F5C842; color: rgba(0,0,0,0.25); }
+  .portfolio-item:nth-child(5) .portfolio-thumb { background: #F0557A; }
+  .portfolio-item:nth-child(6) .portfolio-thumb { background: #9B7FD4; }
+
+  .portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--black);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .portfolio-item:hover .portfolio-overlay { opacity: 0.88; }
+
+  .portfolio-overlay-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    margin-bottom: 0.5rem;
+  }
+
+  .portfolio-overlay-title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--white);
+    text-align: center;
+  }
+
+  .portfolio-meta {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .portfolio-meta-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .portfolio-meta-title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  /* PROCESS */
+  .process {
+    background: #1A1240;
+    color: var(--white);
+    padding: 6rem 3.5rem;
+    border-bottom: 0.5px solid #2A2060;
+  }
+
+  .process-header {
+    margin-bottom: 4rem;
+  }
+
+  .process-header .section-title {
+    color: var(--white);
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .process-step {
+    padding: 2rem 2rem 2rem 0;
+    border-right: 0.5px solid #2A2060;
+    padding-right: 2rem;
+  }
+
+  .process-step:last-child { border-right: none; }
+
+  .process-step + .process-step { padding-left: 2rem; }
+
+  .process-step-num {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    color: var(--pink);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .process-step-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+
+  .process-step-desc {
+    font-size: 0.88rem;
+    color: #9B97CC;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* CONTACT */
+  .contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 70vh;
+  }
+
+  .contact-left {
+    padding: 6rem 3.5rem;
+    border-right: 0.5px solid var(--gray-mid);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #FFF5F7;
+  }
+
+  .contact-title {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  .contact-title em { font-style: italic; }
+
+  .contact-detail {
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gray-muted);
+  }
+
+  .contact-right {
+    padding: 6rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--gray-light);
+  }
+
+  .contact-form-group {
+    margin-bottom: 2rem;
+  }
+
+  .contact-form-group label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-muted);
+    margin-bottom: 0.6rem;
+  }
+
+  .contact-form-group input,
+  .contact-form-group textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--gray-mid);
+    padding: 0.5rem 0;
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--black);
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+
+  .contact-form-group input:focus,
+  .contact-form-group textarea:focus {
+    border-bottom-color: var(--black);
+  }
+
+  .contact-form-group textarea { min-height: 100px; }
+
+  .btn-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .form-submit {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: var(--pink);
+    color: var(--white);
+    border: none;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    border-radius: 2px;
+  }
+  
+  .form-submit.secondary {
+    background: var(--lilac);
+  }
+
+  .form-submit:hover { opacity: 0.75; }
+
+  /* FOOTER */
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3.5rem;
+    border-top: 0.5px solid var(--gray-mid);
+  }
+
+  footer p {
+    font-size: 0.78rem;
+    color: var(--gray-muted);
+    letter-spacing: 0.04em;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gray-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--black); }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { min-height: 300px; order: -1; }
+    .hero-text { padding: 2rem 1.5rem; }
+    .hero-stat-grid { bottom: 1.5rem; left: 1.5rem; }
+    .about { grid-template-columns: 1fr; }
+    .about-label { display: none; }
+    .about-content { padding: 3rem 1.5rem; }
+    .services-header { grid-template-columns: 1fr; }
+    .services-header-left { border-right: none; padding: 2rem 1.5rem 1rem; }
+    .services-header-right { padding: 0 1.5rem 2rem; }
+    .service-list { grid-template-columns: 1fr; }
+    .service-item { border-right: none; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; }
+    .portfolio-item:nth-child(2n) { border-right: none; }
+    .portfolio-item:nth-child(3n) { border-right: 0.5px solid var(--gray-mid); }
+    .process { padding: 4rem 1.5rem; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .process-step { border: none; padding: 0; }
+    .contact { grid-template-columns: 1fr; }
+    .contact-left { padding: 3rem 1.5rem; border-right: none; min-height: auto; }
+    .contact-right { padding: 3rem 1.5rem; }
+    footer { flex-direction: column; gap: 1rem; padding: 1.5rem; }
+    .portfolio-header { padding: 2rem 1.5rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">MEA</a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#portfolio">Portfólio</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Criadora de Conteúdo, Freelance</p>
+    <h1 class="hero-name">
+      Maria Eduarda<br>
+      <em>Arrabal</em>
+    </h1>
+    <p class="hero-desc">
+      Conteúdo que conecta marcas às pessoas certas, com estratégia, consistência e identidade visual forte.
+    </p>
+    <div class="cta-group">
+      <a href="#contato" class="btn-primary">Fale comigo</a>
+      <a href="#portfolio" class="btn-secondary">Ver trabalhos</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-bg-text">ME</div>
+    <div class="hero-tagline-box">
+      <span class="hero-tagline-text">✦ Disponível para novos projetos</span>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Criação de Conteúdo</span><span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Social Media</span><span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Copywriting</span><span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Instagram &amp; TikTok</span><span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Identidade de Marca</span><span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Calendário Editorial</span><span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Criação de Conteúdo</span><span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Social Media</span><span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Copywriting</span><span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Instagram &amp; TikTok</span><span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Identidade de Marca</span><span class="marquee-item marquee-dot">·</span>
+    <span class="marquee-item">Calendário Editorial</span><span class="marquee-item marquee-dot">·</span>
+  </div>
+</div>
+
+<section class="about" id="sobre">
+  <div class="about-label">
+    <span class="section-tag">Sobre</span>
+  </div>
+  <div class="about-content">
+    <p class="fade-in">
+      Olá! Sou Maria Eduarda, criadora de conteúdo apaixonada por comunicação visual e narrativas autênticas. Meu trabalho é transformar a essência de uma marca em conteúdo que ressoa, capaz de gerar conexão real com o público certo.
+    </p>
+    <p class="fade-in">
+      Trabalho com empreendedores, pequenos negócios e marcas que querem crescer no digital com identidade consistente e presença forte. Cada projeto começa com escuta ativa e termina com entrega que supera expectativas.
+    </p>
+  </div>
+</section>
+
+<section class="services" id="servicos">
+  <div class="services-header">
+    <div class="services-header-left">
+      <h2 class="section-title">O que eu <em>faço</em></h2>
+    </div>
+    <div class="services-header-right">
+      <p>Serviços pensados para marcas que querem presença digital sólida, conteúdo de qualidade e resultados reais.</p>
+    </div>
+  </div>
+  <div class="service-list">
+    <div class="service-item fade-in">
+      <span class="service-num">01</span>
+      <h3 class="service-name">Criação de Conteúdo</h3>
+      <p class="service-desc">Produção de posts, reels, stories e carrosséis com roteiro, estética e copy alinhados à sua marca.</p>
+    </div>
+    <div class="service-item fade-in">
+      <span class="service-num">02</span>
+      <h3 class="service-name">Calendário Editorial</h3>
+      <p class="service-desc">Planejamento mensal de conteúdo com temas, formatos e datas estratégicas para máximo engajamento.</p>
+    </div>
+    <div class="service-item fade-in">
+      <span class="service-num">03</span>
+      <h3 class="service-name">Copywriting</h3>
+      <p class="service-desc">Textos que vendem sem parecer propaganda, legendas, bio, e-mails e peças para campanhas.</p>
+    </div>
+    <div class="service-item fade-in">
+      <span class="service-num">04</span>
+      <h3 class="service-name">Feed &amp; Identidade Visual</h3>
+      <p class="service-desc">Criação de templates e curadoria visual para um feed coeso que transmite profissionalismo.</p>
+    </div>
+    <div class="service-item fade-in">
+      <span class="service-num">05</span>
+      <h3 class="service-name">Roteiros para Vídeo</h3>
+      <p class="service-desc">Roteiros para reels, TikToks e vídeos curtos pensados para reter atenção e gerar compartilhamentos.</p>
+    </div>
+    <div class="service-item fade-in">
+      <span class="service-num">06</span>
+      <h3 class="service-name">Consultoria</h3>
+      <p class="service-desc">Sessões de diagnóstico e estratégia para marcas que querem melhorar sua comunicação digital.</p>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-header">
+    <h2 class="section-title">Trabalhos <em>recentes</em></h2>
+  </div>
+  <div class="portfolio-grid">
+
+    <div class="portfolio-item fade-in">
+      <div class="portfolio-thumb">
+        <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;inset:0;display:block;">
+          <rect width="480" height="360" fill="#F5EDE8"/>
+          <rect width="480" height="38" fill="#fff"/>
+          <circle cx="20" cy="19" r="10" fill="#E8C4B8"/>
+          <rect x="36" y="13" width="70" height="7" rx="3" fill="#C4948A"/>
+          <rect x="430" y="11" width="16" height="16" rx="3" fill="none" stroke="#C4948A" stroke-width="1.5"/>
+          <rect x="406" y="14" width="18" height="11" rx="2" fill="none" stroke="#C4948A" stroke-width="1.5"/>
+          <circle cx="380" cy="19" r="7" fill="none" stroke="#C4948A" stroke-width="1.5"/>
+          <rect x="1" y="40" width="157" height="118" fill="#E8C0B5"/>
+          <ellipse cx="79" cy="80" rx="18" ry="10" fill="#C4748A"/>
+          <path d="M61 90 Q70 130 79 135 Q88 130 97 90 Z" fill="#C4748A"/>
+          <rect x="68" y="88" width="22" height="4" rx="2" fill="#E8A4B8"/>
+          <text x="79" y="148" text-anchor="middle" font-size="8" fill="#7A3A4A" font-family="serif" font-style="italic" letter-spacing="1">STUDIO A</text>
+          <rect x="159" y="40" width="157" height="118" fill="#F2D5D0"/>
+          <rect x="185" y="58" width="105" height="82" rx="2" fill="#D4849A"/>
+          <rect x="197" y="68" width="81" height="62" rx="1" fill="#E8B4C4"/>
+          <circle cx="237" cy="99" r="20" fill="#C4748A"/>
+          <text x="237" y="103" text-anchor="middle" font-size="7" fill="#fff" font-family="sans-serif" letter-spacing="1">SA</text>
+          <rect x="317" y="40" width="162" height="118" fill="#EAD0D8"/>
+          <rect x="335" y="55" width="70" height="88" rx="2" fill="#F5E6E0"/>
+          <rect x="342" y="62" width="56" height="40" rx="1" fill="#D4A0B0"/>
+          <rect x="347" y="108" width="46" height="6" rx="3" fill="#C4748A"/>
+          <rect x="352" y="118" width="36" height="4" rx="2" fill="#D4A0B0"/>
+          <rect x="1" y="160" width="157" height="118" fill="#E0BCC4"/>
+          <rect x="20" y="175" width="118" height="88" rx="2" fill="#C8849A"/>
+          <text x="79" y="218" text-anchor="middle" font-size="16" fill="#fff" font-family="serif" font-style="italic">Nova</text>
+          <text x="79" y="234" text-anchor="middle" font-size="16" fill="#fff" font-family="serif" font-style="italic">Coleção</text>
+          <rect x="159" y="160" width="157" height="118" fill="#F8E8E4"/>
+          <rect x="175" y="172" width="125" height="94" rx="2" fill="#EAC0CC"/>
+          <text x="237" y="225" text-anchor="middle" font-size="9" fill="#7A3A4A" font-family="sans-serif" letter-spacing="2">OUTONO 2025</text>
+          <rect x="317" y="160" width="162" height="118" fill="#DDBAC4"/>
+          <circle cx="398" cy="219" r="38" fill="#C4849A"/>
+          <circle cx="398" cy="219" r="26" fill="#E8B4C4"/>
+          <text x="398" y="223" text-anchor="middle" font-size="8" fill="#fff" font-family="sans-serif">MODA</text>
+          <rect x="0" y="280" width="480" height="80" fill="#fff"/>
+          <rect x="0" y="280" width="480" height="1" fill="#eee"/>
+          <rect x="30" y="295" width="40" height="28" rx="3" fill="#F5EDE8"/>
+          <rect x="90" y="299" width="30" height="5" rx="2" fill="#eee"/>
+          <rect x="90" y="308" width="42" height="4" rx="2" fill="#eee"/>
+          <rect x="90" y="317" width="36" height="4" rx="2" fill="#eee"/>
+          <circle cx="200" cy="309" r="16" fill="#F5EDE8"/>
+          <text x="200" y="314" text-anchor="middle" font-size="13" fill="#C4748A" font-family="serif">+</text>
+          <text x="30" y="344" font-size="10" fill="#C4748A" font-family="sans-serif">♥ 342 curtidas</text>
+          <text x="200" y="344" text-anchor="middle" font-size="9" fill="#aaa" font-family="sans-serif" letter-spacing="1">STUDIO A · MODA LOCAL</text>
+        </svg>
+        <div class="portfolio-overlay">
+          <span class="portfolio-overlay-tag">Instagram</span>
+          <span class="portfolio-overlay-title">Feed para marca de moda local</span>
+        </div>
+      </div>
+      <div class="portfolio-meta">
+        <p class="portfolio-meta-tag">Moda, Feed</p>
+        <p class="portfolio-meta-title">Identidade visual para marca local</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item fade-in">
+      <div class="portfolio-thumb">
+        <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;inset:0;display:block;">
+          <rect width="480" height="360" fill="#0D1117"/>
+          <rect x="155" y="10" width="170" height="340" rx="18" fill="#1A2030"/>
+          <rect x="160" y="16" width="160" height="328" rx="14" fill="#1E2D45"/>
+          <rect x="160" y="16" width="160" height="328" rx="14" fill="#0F3460"/>
+          <ellipse cx="240" cy="120" rx="70" ry="70" fill="#1A5276"/>
+          <ellipse cx="240" cy="120" rx="46" ry="46" fill="#1F618D"/>
+          <rect x="228" y="100" width="24" height="40" rx="4" fill="#fff" opacity="0.9"/>
+          <rect x="220" y="112" width="40" height="16" rx="4" fill="#fff" opacity="0.9"/>
+          <rect x="168" y="200" width="144" height="2" fill="rgba(255,255,255,0.15)"/>
+          <text x="240" y="220" text-anchor="middle" font-size="11" fill="#fff" font-family="sans-serif" font-weight="bold" letter-spacing="0.5">5 DICAS PARA SUA</text>
+          <text x="240" y="234" text-anchor="middle" font-size="11" fill="#fff" font-family="sans-serif" font-weight="bold" letter-spacing="0.5">SAÚDE HOJE</text>
+          <text x="240" y="250" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.6)" font-family="sans-serif">@clinica_vida</text>
+          <rect x="168" y="326" width="144" height="3" rx="1" fill="rgba(255,255,255,0.2)"/>
+          <rect x="168" y="326" width="60" height="3" rx="1" fill="#3DBFA0"/>
+          <circle cx="310" cy="180" r="16" fill="rgba(255,255,255,0.1)"/>
+          <text x="310" y="185" text-anchor="middle" font-size="13" fill="#fff" font-family="serif">♥</text>
+          <text x="310" y="200" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.6)" font-family="sans-serif">2.4k</text>
+          <circle cx="310" cy="225" r="16" fill="rgba(255,255,255,0.1)"/>
+          <text x="310" y="230" text-anchor="middle" font-size="11" fill="#fff" font-family="sans-serif">✉</text>
+          <text x="310" y="245" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.6)" font-family="sans-serif">318</text>
+          <circle cx="310" cy="270" r="16" fill="rgba(255,255,255,0.1)"/>
+          <text x="310" y="275" text-anchor="middle" font-size="11" fill="#fff" font-family="sans-serif">↗</text>
+          <circle cx="185" cy="300" r="11" fill="#3DBFA0"/>
+          <text x="185" y="304" text-anchor="middle" font-size="8" fill="#fff" font-family="sans-serif">CV</text>
+          <text x="200" y="298" font-size="8" fill="#fff" font-family="sans-serif">clinica_vida</text>
+          <text x="200" y="310" font-size="7" fill="rgba(255,255,255,0.5)" font-family="sans-serif">Conteúdo educativo</text>
+          <rect x="165" y="316" width="80" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+          <text x="205" y="321" text-anchor="middle" font-size="6" fill="rgba(255,255,255,0.4)" font-family="sans-serif">♪ som original</text>
+          <text x="20" y="60" font-size="9" fill="rgba(255,255,255,0.3)" font-family="sans-serif">VIEWS</text>
+          <text x="20" y="76" font-size="14" fill="#3DBFA0" font-family="sans-serif" font-weight="bold">12.8k</text>
+          <rect x="20" y="85" width="60" height="3" rx="1" fill="rgba(255,255,255,0.1)"/>
+          <rect x="20" y="85" width="48" height="3" rx="1" fill="#3DBFA0"/>
+          <text x="20" y="110" font-size="9" fill="rgba(255,255,255,0.3)" font-family="sans-serif">SAVES</text>
+          <text x="20" y="126" font-size="14" fill="#9B7FD4" font-family="sans-serif" font-weight="bold">847</text>
+          <rect x="20" y="135" width="60" height="3" rx="1" fill="rgba(255,255,255,0.1)"/>
+          <rect x="20" y="135" width="36" height="3" rx="1" fill="#9B7FD4"/>
+        </svg>
+        <div class="portfolio-overlay">
+          <span class="portfolio-overlay-tag">TikTok</span>
+          <span class="portfolio-overlay-title">Conteúdo educativo para clínica</span>
+        </div>
+      </div>
+      <div class="portfolio-meta">
+        <p class="portfolio-meta-tag">Saúde, Reels</p>
+        <p class="portfolio-meta-title">Conteúdo educativo para clínica</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item fade-in">
+      <div class="portfolio-thumb">
+        <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;inset:0;display:block;">
+          <rect width="480" height="360" fill="#2C1810"/>
+          <circle cx="240" cy="180" r="160" fill="#3D2418" opacity="0.8"/>
+          <circle cx="240" cy="180" r="110" fill="#4A2C1C" opacity="0.6"/>
+          <rect x="140" y="22" width="200" height="26" rx="13" fill="#C4885F"/>
+          <text x="240" y="39" text-anchor="middle" font-size="10" fill="#fff" font-family="sans-serif" letter-spacing="2" font-weight="bold">LANÇAMENTO ESPECIAL</text>
+          <ellipse cx="240" cy="248" rx="72" ry="12" fill="#6B3A2A"/>
+          <ellipse cx="240" cy="246" rx="60" ry="8" fill="#7A4433"/>
+          <path d="M186 190 Q188 248 240 252 Q292 248 294 190 Z" fill="#5A2E1E"/>
+          <path d="M192 190 Q194 242 240 246 Q286 242 288 190 Z" fill="#6B3A2A"/>
+          <ellipse cx="240" cy="192" rx="46" ry="10" fill="#3D1F10"/>
+          <ellipse cx="240" cy="192" rx="38" ry="7" fill="#2C140A"/>
+          <ellipse cx="240" cy="192" rx="28" ry="5" fill="#C4885F" opacity="0.6"/>
+          <path d="M220 192 Q230 188 240 192 Q250 196 260 192" stroke="#D4A070" stroke-width="1.5" fill="none" opacity="0.7"/>
+          <path d="M288 210 Q310 210 310 225 Q310 240 288 238" stroke="#7A4433" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M215 175 Q210 162 218 150 Q226 138 222 126" stroke="#C4885F" stroke-width="2" fill="none" opacity="0.5" stroke-linecap="round"/>
+          <path d="M240 172 Q234 158 242 146 Q250 134 244 122" stroke="#C4885F" stroke-width="2" fill="none" opacity="0.5" stroke-linecap="round"/>
+          <path d="M265 175 Q260 160 268 148 Q276 136 270 124" stroke="#C4885F" stroke-width="2" fill="none" opacity="0.5" stroke-linecap="round"/>
+          <text x="240" y="290" text-anchor="middle" font-size="22" fill="#C4885F" font-family="serif" font-style="italic" letter-spacing="2">Café Origem</text>
+          <line x1="120" y1="302" x2="360" y2="302" stroke="#6B3A2A" stroke-width="0.5"/>
+          <text x="240" y="320" text-anchor="middle" font-size="9" fill="#A07050" font-family="sans-serif" letter-spacing="3">TORRADO COM AMOR · DESDE 2020</text>
+          <ellipse cx="60" cy="280" rx="12" ry="7" fill="#6B3A2A" transform="rotate(-30 60 280)"/>
+          <line x1="60" y1="273" x2="60" y2="287" stroke="#3D1F10" stroke-width="1" transform="rotate(-30 60 280)"/>
+          <ellipse cx="420" cy="100" rx="12" ry="7" fill="#6B3A2A" transform="rotate(20 420 100)"/>
+          <line x1="420" y1="93" x2="420" y2="107" stroke="#3D1F10" stroke-width="1" transform="rotate(20 420 100)"/>
+          <ellipse cx="80" cy="80" rx="10" ry="6" fill="#5A2E1E" transform="rotate(15 80 80)"/>
+          <ellipse cx="400" cy="290" rx="10" ry="6" fill="#5A2E1E" transform="rotate(-20 400 290)"/>
+          <rect x="354" y="18" width="106" height="42" rx="6" fill="#C4885F" opacity="0.15"/>
+          <text x="407" y="36" text-anchor="middle" font-size="8" fill="#C4885F" font-family="sans-serif" letter-spacing="1">EDIÇÃO</text>
+          <text x="407" y="50" text-anchor="middle" font-size="8" fill="#C4885F" font-family="sans-serif" letter-spacing="1">LIMITADA</text>
+        </svg>
+        <div class="portfolio-overlay">
+          <span class="portfolio-overlay-tag">Instagram</span>
+          <span class="portfolio-overlay-title">Campanha de lançamento de produto</span>
+        </div>
+      </div>
+      <div class="portfolio-meta">
+        <p class="portfolio-meta-tag">Gastronomia, Campanha</p>
+        <p class="portfolio-meta-title">Lançamento de produto gastronômico</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item fade-in">
+      <div class="portfolio-thumb">
+        <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;inset:0;display:block;">
+          <rect width="480" height="360" fill="#F3F2EF"/>
+          <rect x="20" y="14" width="440" height="332" rx="8" fill="#fff" stroke="#e0ddd8" stroke-width="0.5"/>
+          <circle cx="54" cy="52" r="22" fill="#0A66C2"/>
+          <text x="54" y="57" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif" font-weight="bold">NC</text>
+          <text x="84" y="44" font-size="11" fill="#191919" font-family="sans-serif" font-weight="bold">Nova Consultoria</text>
+          <text x="84" y="58" font-size="9" fill="#666" font-family="sans-serif">Consultoria Empresarial · 2.847 seguidores</text>
+          <text x="84" y="70" font-size="9" fill="#666" font-family="sans-serif">Patrocinado ·</text>
+          <line x1="36" y1="84" x2="444" y2="84" stroke="#e8e6e1" stroke-width="0.5"/>
+          <rect x="36" y="90" width="408" height="172" rx="4" fill="#0A2D5E"/>
+          <text x="240" y="118" text-anchor="middle" font-size="14" fill="#fff" font-family="sans-serif" font-weight="bold" letter-spacing="0.5">3 PILARES DO CRESCIMENTO</text>
+          <line x1="80" y1="126" x2="400" y2="126" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+          <rect x="60" y="136" width="96" height="96" rx="8" fill="rgba(255,255,255,0.08)"/>
+          <circle cx="108" cy="162" r="20" fill="#F5A623"/>
+          <text x="108" y="167" text-anchor="middle" font-size="14" fill="#fff" font-family="sans-serif">↑</text>
+          <text x="108" y="194" text-anchor="middle" font-size="9" fill="#fff" font-family="sans-serif" font-weight="bold">ESTRATÉGIA</text>
+          <text x="108" y="206" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.6)" font-family="sans-serif">Planejamento</text>
+          <text x="108" y="216" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.6)" font-family="sans-serif">inteligente</text>
+          <rect x="192" y="136" width="96" height="96" rx="8" fill="rgba(255,255,255,0.12)"/>
+          <circle cx="240" cy="162" r="20" fill="#0F9D58"/>
+          <text x="240" y="167" text-anchor="middle" font-size="14" fill="#fff" font-family="sans-serif">◆</text>
+          <text x="240" y="194" text-anchor="middle" font-size="9" fill="#fff" font-family="sans-serif" font-weight="bold">EXECUÇÃO</text>
+          <text x="240" y="206" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.6)" font-family="sans-serif">Processos</text>
+          <text x="240" y="216" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.6)" font-family="sans-serif">eficientes</text>
+          <rect x="324" y="136" width="96" height="96" rx="8" fill="rgba(255,255,255,0.08)"/>
+          <circle cx="372" cy="162" r="20" fill="#DB4437"/>
+          <text x="372" y="167" text-anchor="middle" font-size="14" fill="#fff" font-family="sans-serif">✦</text>
+          <text x="372" y="194" text-anchor="middle" font-size="9" fill="#fff" font-family="sans-serif" font-weight="bold">RESULTADO</text>
+          <text x="372" y="206" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.6)" font-family="sans-serif">Crescimento</text>
+          <text x="372" y="216" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.6)" font-family="sans-serif">mensurável</text>
+          <text x="36" y="282" font-size="9" fill="#191919" font-family="sans-serif">Empresas que crescem têm algo em comum: estratégia clara,</text>
+          <text x="36" y="295" font-size="9" fill="#191919" font-family="sans-serif">execução consistente e métricas bem definidas. Saiba mais ↓</text>
+          <line x1="36" y1="308" x2="444" y2="308" stroke="#e8e6e1" stroke-width="0.5"/>
+          <circle cx="50" cy="322" r="8" fill="#0A66C2"/>
+          <text x="50" y="326" text-anchor="middle" font-size="7" fill="#fff" font-family="sans-serif">♥</text>
+          <text x="64" y="326" font-size="8" fill="#666" font-family="sans-serif">Rodrigo e outras 148 pessoas</text>
+          <text x="380" y="326" font-size="8" fill="#666" font-family="sans-serif">23 comentários</text>
+          <rect x="36" y="332" width="85" height="22" rx="4" fill="none"/>
+          <text x="79" y="347" text-anchor="middle" font-size="9" fill="#666" font-family="sans-serif">👍 Curtir</text>
+          <rect x="130" y="332" width="85" height="22" rx="4" fill="none"/>
+          <text x="172" y="347" text-anchor="middle" font-size="9" fill="#666" font-family="sans-serif">💬 Comentar</text>
+          <rect x="224" y="332" width="85" height="22" rx="4" fill="none"/>
+          <text x="266" y="347" text-anchor="middle" font-size="9" fill="#666" font-family="sans-serif">↗ Compartilhar</text>
+        </svg>
+        <div class="portfolio-overlay">
+          <span class="portfolio-overlay-tag">LinkedIn</span>
+          <span class="portfolio-overlay-title">Conteúdo B2B para consultoria</span>
+        </div>
+      </div>
+      <div class="portfolio-meta">
+        <p class="portfolio-meta-tag">B2B, LinkedIn</p>
+        <p class="portfolio-meta-title">Posicionamento para consultoria</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item fade-in">
+      <div class="portfolio-thumb">
+        <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;inset:0;display:block;">
+          <rect width="480" height="360" fill="#F5C842"/>
+          <rect x="20" y="20" width="260" height="320" rx="10" fill="#2D1B6B"/>
+          <text x="55" y="80" font-size="52" fill="rgba(255,255,255,0.12)" font-family="serif" font-weight="bold">01</text>
+          <text x="40" y="100" font-size="13" fill="#F5C842" font-family="sans-serif" font-weight="bold">COMO APRENDER</text>
+          <text x="40" y="117" font-size="13" fill="#fff" font-family="sans-serif" font-weight="bold">MAIS RÁPIDO</text>
+          <circle cx="210" cy="68" r="28" fill="rgba(245,200,66,0.15)"/>
+          <ellipse cx="210" cy="62" rx="14" ry="16" fill="#F5C842"/>
+          <rect x="204" y="77" width="12" height="5" rx="2" fill="#D4A800"/>
+          <rect x="206" y="83" width="8" height="3" rx="1" fill="#D4A800"/>
+          <circle cx="47" cy="148" r="5" fill="#9B7FD4"/>
+          <text x="60" y="152" font-size="9" fill="rgba(255,255,255,0.85)" font-family="sans-serif">Aprenda com intervalos</text>
+          <rect x="60" y="156" width="140" height="2" rx="1" fill="rgba(255,255,255,0.1)"/>
+          <circle cx="47" cy="178" r="5" fill="#F0557A"/>
+          <text x="60" y="182" font-size="9" fill="rgba(255,255,255,0.85)" font-family="sans-serif">Ensine o que aprendeu</text>
+          <rect x="60" y="186" width="130" height="2" rx="1" fill="rgba(255,255,255,0.1)"/>
+          <circle cx="47" cy="208" r="5" fill="#3DBFA0"/>
+          <text x="60" y="212" font-size="9" fill="rgba(255,255,255,0.85)" font-family="sans-serif">Pratique a recuperação</text>
+          <rect x="60" y="216" width="140" height="2" rx="1" fill="rgba(255,255,255,0.1)"/>
+          <circle cx="47" cy="238" r="5" fill="#F5C842"/>
+          <text x="60" y="242" font-size="9" fill="rgba(255,255,255,0.85)" font-family="sans-serif">Elimine distrações</text>
+          <line x1="36" y1="272" x2="264" y2="272" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+          <text x="40" y="290" font-size="8" fill="rgba(255,255,255,0.4)" font-family="sans-serif" letter-spacing="1">APRENDA MAIS</text>
+          <text x="258" y="290" text-anchor="end" font-size="8" fill="#F5C842" font-family="sans-serif">deslize →</text>
+          <circle cx="120" cy="312" r="5" fill="#F5C842"/>
+          <circle cx="136" cy="312" r="3" fill="rgba(255,255,255,0.3)"/>
+          <circle cx="148" cy="312" r="3" fill="rgba(255,255,255,0.3)"/>
+          <circle cx="160" cy="312" r="3" fill="rgba(255,255,255,0.3)"/>
+          <circle cx="172" cy="312" r="3" fill="rgba(255,255,255,0.3)"/>
+          <rect x="294" y="30" width="170" height="300" rx="10" fill="#9B7FD4" opacity="0.9"/>
+          <text x="380" y="85" text-anchor="middle" font-size="40" fill="rgba(255,255,255,0.15)" font-family="serif" font-weight="bold">02</text>
+          <text x="314" y="108" font-size="11" fill="#fff" font-family="sans-serif" font-weight="bold">A TÉCNICA</text>
+          <text x="314" y="123" font-size="11" fill="rgba(255,255,255,0.7)" font-family="sans-serif">POMODORO</text>
+          <rect x="314" y="140" width="130" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+          <rect x="314" y="152" width="110" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+          <rect x="314" y="164" width="120" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+          <circle cx="380" cy="230" r="40" fill="rgba(255,255,255,0.1)"/>
+          <circle cx="380" cy="230" r="32" fill="rgba(255,255,255,0.08)"/>
+          <text x="380" y="225" text-anchor="middle" font-size="18" fill="#fff" font-family="sans-serif" font-weight="bold">25</text>
+          <text x="380" y="238" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.5)" font-family="sans-serif">min</text>
+          <text x="284" y="182" text-anchor="middle" font-size="22" fill="rgba(45,27,107,0.5)" font-family="sans-serif">›</text>
+        </svg>
+        <div class="portfolio-overlay">
+          <span class="portfolio-overlay-tag">Instagram</span>
+          <span class="portfolio-overlay-title">Série de carrosséis educativos</span>
+        </div>
+      </div>
+      <div class="portfolio-meta">
+        <p class="portfolio-meta-tag">Educação, Carrossel</p>
+        <p class="portfolio-meta-title">Série educativa para infoproduto</p>
+      </div>
+    </div>
+
+    <div class="portfolio-item fade-in">
+      <div class="portfolio-thumb">
+        <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;inset:0;display:block;">
+          <rect width="480" height="360" fill="#F9F3E3"/>
+          <text x="240" y="36" text-anchor="middle" font-size="9" fill="#A08060" font-family="sans-serif" letter-spacing="3">IDENTIDADE VISUAL</text>
+          <circle cx="240" cy="110" r="56" fill="none" stroke="#E8C06A" stroke-width="1"/>
+          <circle cx="240" cy="98" r="18" fill="#F5C842"/>
+          <line x1="240" y1="72" x2="240" y2="65" stroke="#F5C842" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="261" y1="78" x2="266" y2="73" stroke="#F5C842" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="267" y1="98" x2="274" y2="98" stroke="#F5C842" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="261" y1="118" x2="266" y2="123" stroke="#F5C842" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="219" y1="78" x2="214" y2="73" stroke="#F5C842" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="213" y1="98" x2="206" y2="98" stroke="#F5C842" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="219" y1="118" x2="214" y2="123" stroke="#F5C842" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M190 128 Q205 118 220 128 Q235 138 250 128 Q265 118 280 128 Q295 138 300 132" stroke="#2196A6" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M188 138 Q203 128 218 138 Q233 148 248 138 Q263 128 278 138 Q293 148 302 142" stroke="#7ECFD8" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+          <text x="240" y="170" text-anchor="middle" font-size="20" fill="#1A4A50" font-family="serif" letter-spacing="4">SOL &amp; MAR</text>
+          <line x1="150" y1="178" x2="330" y2="178" stroke="#E8C06A" stroke-width="0.5"/>
+          <text x="240" y="192" text-anchor="middle" font-size="8" fill="#A08060" font-family="sans-serif" letter-spacing="3">LIFESTYLE · COASTAL LIVING</text>
+          <text x="36" y="218" font-size="8" fill="#A08060" font-family="sans-serif" letter-spacing="1">PALETA</text>
+          <circle cx="48" cy="234" r="14" fill="#2196A6"/>
+          <circle cx="80" cy="234" r="14" fill="#7ECFD8"/>
+          <circle cx="112" cy="234" r="14" fill="#F5C842"/>
+          <circle cx="144" cy="234" r="14" fill="#F0C96B"/>
+          <circle cx="176" cy="234" r="14" fill="#1A4A50"/>
+          <text x="220" y="218" font-size="8" fill="#A08060" font-family="sans-serif" letter-spacing="1">TIPOGRAFIA</text>
+          <text x="220" y="236" font-size="15" fill="#1A4A50" font-family="serif" font-style="italic">Playfair Display</text>
+          <text x="220" y="252" font-size="9" fill="#A08060" font-family="sans-serif">DM Sans, corpo do texto</text>
+          <rect x="36" y="262" width="64" height="86" rx="8" fill="#1A4A50"/>
+          <rect x="40" y="270" width="56" height="72" rx="4" fill="#F9F3E3"/>
+          <rect x="44" y="274" width="48" height="18" rx="2" fill="#7ECFD8"/>
+          <text x="68" y="286" text-anchor="middle" font-size="5" fill="#1A4A50" font-family="serif">SOL &amp; MAR</text>
+          <rect x="44" y="296" width="48" height="6" rx="2" fill="#E8C06A" opacity="0.5"/>
+          <rect x="44" y="306" width="30" height="4" rx="2" fill="#eee"/>
+          <rect x="44" y="314" width="40" height="4" rx="2" fill="#eee"/>
+          <rect x="44" y="322" width="36" height="4" rx="2" fill="#eee"/>
+          <rect x="116" y="262" width="160" height="86" rx="6" fill="#1A4A50"/>
+          <circle cx="148" cy="292" r="18" fill="rgba(245,200,66,0.2)"/>
+          <text x="148" y="287" text-anchor="middle" font-size="7" fill="#F5C842" font-family="sans-serif">☀</text>
+          <path d="M133 296 Q140 291 148 296 Q156 301 163 296" stroke="#7ECFD8" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <text x="190" y="285" font-size="11" fill="#fff" font-family="serif" letter-spacing="2">SOL &amp;</text>
+          <text x="190" y="299" font-size="11" fill="#F5C842" font-family="serif" letter-spacing="2">MAR</text>
+          <text x="190" y="314" font-size="7" fill="rgba(255,255,255,0.5)" font-family="sans-serif">Coastal Lifestyle</text>
+          <text x="124" y="338" font-size="6" fill="rgba(255,255,255,0.35)" font-family="sans-serif" letter-spacing="1">contato@solemar.com.br</text>
+          <rect x="292" y="262" width="156" height="86" rx="6" fill="#fff" stroke="#eee" stroke-width="0.5"/>
+          <rect x="292" y="262" width="156" height="18" rx="6" fill="#f5f5f5"/>
+          <circle cx="304" cy="271" r="3" fill="#FF5F57"/>
+          <circle cx="316" cy="271" r="3" fill="#FEBC2E"/>
+          <circle cx="328" cy="271" r="3" fill="#28C840"/>
+          <rect x="338" y="265" width="100" height="12" rx="6" fill="#eee"/>
+          <text x="388" y="274" text-anchor="middle" font-size="6" fill="#aaa" font-family="sans-serif">solemar.com.br</text>
+          <rect x="298" y="284" width="144" height="26" rx="2" fill="#7ECFD8"/>
+          <text x="370" y="300" text-anchor="middle" font-size="8" fill="#1A4A50" font-family="serif" font-weight="bold">SOL &amp; MAR</text>
+          <rect x="298" y="314" width="90" height="5" rx="2" fill="#eee"/>
+          <rect x="298" y="323" width="120" height="4" rx="2" fill="#eee"/>
+          <rect x="298" y="331" width="80" height="4" rx="2" fill="#eee"/>
+        </svg>
+        <div class="portfolio-overlay">
+          <span class="portfolio-overlay-tag">Multi-plataforma</span>
+          <span class="portfolio-overlay-title">Rebranding de presença digital</span>
+        </div>
+      </div>
+      <div class="portfolio-meta">
+        <p class="portfolio-meta-tag">Lifestyle, Branding</p>
+        <p class="portfolio-meta-title">Rebranding de presença digital</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="process">
+  <div class="process-header">
+    <h2 class="section-title">Como eu <em>trabalho</em></h2>
+  </div>
+  <div class="process-steps">
+    <div class="process-step fade-in">
+      <div class="process-step-num">01</div>
+      <h3 class="process-step-title">Briefing</h3>
+      <p class="process-step-desc">Entendo a fundo sua marca, público-alvo, tom de voz e objetivos antes de criar qualquer coisa.</p>
+    </div>
+    <div class="process-step fade-in">
+      <div class="process-step-num">02</div>
+      <h3 class="process-step-title">Estratégia</h3>
+      <p class="process-step-desc">Planejo o conteúdo com foco em resultados, o que postar, quando e como para crescer de verdade.</p>
+    </div>
+    <div class="process-step fade-in">
+      <div class="process-step-num">03</div>
+      <h3 class="process-step-title">Produção</h3>
+      <p class="process-step-desc">Crio os materiais com atenção a cada detalhe, visual, copy e formato ideal para cada plataforma.</p>
+    </div>
+    <div class="process-step fade-in">
+      <div class="process-step-num">04</div>
+      <h3 class="process-step-title">Entrega &amp; Ajustes</h3>
+      <p class="process-step-desc">Entrego com antecedência e estou disponível para revisões até você ficar 100% satisfeita.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="contact-left">
+    <div>
+      <h2 class="contact-title">Vamos <em>trabalhar</em> juntos?</h2>
+    </div>
+    <div>
+      <p class="contact-detail">mrozaarrabal@gmail.com</p>
+      <p class="contact-detail" style="margin-top:0.5rem;">(22) 98111-3970</p>
+    </div>
+  </div>
+  <div class="contact-right">
+    <div class="contact-form-group">
+      <label for="name">Nome</label>
+      <input type="text" id="name" placeholder="Seu nome completo" />
+    </div>
+    <div class="contact-form-group">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" placeholder="seu@email.com" />
+    </div>
+    <div class="contact-form-group">
+      <label for="message">Mensagem</label>
+      <textarea id="message" placeholder="Conte um pouco sobre seu projeto..."></textarea>
+    </div>
+    <div class="btn-group">
+      <button class="form-submit" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+      <button class="form-submit secondary" onclick="enviarEmail()">Enviar por E-mail</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Maria Eduarda Arrabal, Todos os direitos reservados</p>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Behance</a>
+  </div>
+</footer>
+
+<script>
+  // Animação de Fade-in
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // Funções para Formulário
+  function obterDadosFormulario() {
+    const nome = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const mensagem = document.getElementById('message').value;
+    return { nome, email, mensagem };
+  }
+
+  function enviarWhatsApp() {
+    const { nome, email, mensagem } = obterDadosFormulario();
+    if (!nome || !mensagem) {
+      alert('Por favor, preencha pelo menos o seu nome e a mensagem!');
+      return;
+    }
+    const texto = `Olá! Meu nome é ${nome} (E-mail: ${email}).\n\nMensagem: ${mensagem}`;
+    const url = `https://wa.me/5522981113970?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
+  }
+
+  function enviarEmail() {
+    const { nome, email, mensagem } = obterDadosFormulario();
+    if (!nome || !mensagem) {
+      alert('Por favor, preencha pelo menos o seu nome e a mensagem!');
+      return;
+    }
+    const corpo = `Nome: ${nome}\nE-mail: ${email}\n\nMensagem:\n${mensagem}`;
+    const url = `mailto:mrozaarrabal@gmail.com?subject=Contato via Portfólio - ${encodeURIComponent(nome)}&body=${encodeURIComponent(corpo)}`;
+    window.location.href = url;
+  }
+</script>
+
+</body>
+</html>
